@@ -1,0 +1,294 @@
+
+/* los colores que ulizaremos en el proyector */
+:root {
+    --blanco: #ffffff;   
+    --oscuro: #172020;
+    --primario:#DC61D0;
+    --secundario: #CEBBDC;
+    --gris:#b8b5b7  ;
+    --fondo: #DFE9F3;
+
+}
+
+/****** los Globales o general para todo el proyecto**** */
+html {                  
+    font-size: 62.50%;      /*se pone siembre para*/
+    box-sizing: border-box; /* el tamaño de la fuente */
+    scroll-snap-type: y mandatory; /* para hacer la barra hacia abajo y a los lados x */
+}
+/**** SCROLL SNAP, primero se define en el html y luego se organiz****/
+.servicios,
+.navegador-principal,
+.formulario {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+
+*,*::before,*:after {       /*se pone siembre */
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 16px; /* 1rem = 10px */
+    font-family: 'Krub', sans-serif;   /* la fuente que utilizaremos en el proyecto */
+    background-image: linear-gradient(to top, var(--fondo) 0%, var(--blanco)100%); /* degradar el color de abajo a arriba termina en blanco 100%*/  
+
+}
+.contenedor {   /*le vamos a utlizar para centrar otras partes */
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.boton {
+    background-color: var(--secundario);
+    color:var(--blanco);
+    text-decoration: none;
+    font-size: 2rem;
+    padding: 1rem 3rem;
+    text-transform: uppercase; /*para poner mayu*/
+    border-radius: 0.5rem;
+    font-weight: 700;
+    text-align: center;
+    width: 90%;
+    border:none;
+    
+}
+@media (min-width: 768px) { /*para responsive */
+    .boton {
+        width: auto;
+    }
+}
+
+.boton:hover { /*para que los botones cambien cuando se pone el raton */
+    background-color: var(--primario);
+    color: var(--oscuro);
+    cursor: pointer;
+}
+
+.sombra {  /* para dar sombreado a una clase, recurso en el curos*/
+    box-shadow: 0px 5px 15px 0px rgba(161,152,161,1); /* con solo el ultimo */
+    background-color:  var(--blanco);
+    padding: 2rem;
+    margin-top: 2rem ;
+    border-radius: 1rem;
+}
+
+/* tamaño y color de las letras  */
+h1 {
+    font-size: 3.8rem;    
+}
+h2 {
+    font-size: 2.8rem;    
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+h1,h2,h3 {
+    text-align: center;
+}
+
+/***** utilidades *****/
+
+.w-sm-100{ 
+    width: 100%;  /*para que tenga el 100% del ancho de los demas*/
+}
+
+@media (min-width: 768px) {  /* hacemos esto para que de pantalla normal el enviar se vea bie */
+    .w-sm-100 {
+        width: auto;
+    }
+}
+
+.flex {
+    display: flex;
+}
+.alinear-derecha {
+    justify-content: flex-end;  /* para que el icono se lleve al fina */
+}
+
+.nav-bg {
+    background-color: var(--secundario);   /*tabla de navegacion principal */
+}
+
+
+/**** TITULO****/
+.titulo span {
+    font-size: 2rem;
+}
+
+/*** BARRA DE NAVEGACION ***/
+
+.navegador-principal {  /* se realiza para ver mejor en moviles */
+    display: flex;    /* para alinear los items */
+    flex-direction: column;  /* se ponen en columnas dispositivos moviles */
+       
+}
+
+@media (min-width: 768px) {  /* asi se ve en normal a partir de 768 px */
+    .navegador-principal {    
+        flex-direction:row;   /* para verlo en monitor*/
+        justify-content: space-between;
+    }    
+}    
+
+
+
+.navegador-principal a {
+    color:var(--blanco);
+    text-decoration: none; /* para quitar cualquier subrayado */
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 1rem;
+}
+    
+.navegador-principal a:hover {   /* para que cuando pase el raton cambie*/
+    background-color: var(--primario); /* pseudo elemento */
+    color:var(--oscuro);
+}
+
+/**** IMAGEN DE FONDO */
+.hero {
+    background-image: url(../img/hero.jpg); /* cuando queremos insertar una img desde studio*/
+    background-repeat: no-repeat; /* la imagen se repite constatmente */
+    background-size: cover;
+    height: 450px;
+    position: relative;
+
+    
+    
+}
+
+/* el contenido de lo que tiene la caja de la imagen */
+.contenedor-hero {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 /55%); /* para dar transparecia a la imagen*/
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color:var(--blanco);
+
+}
+
+/**** SERVICIOS trabajamos con gril******/
+
+
+@media (min-width: 768px) {
+    .servicios {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr; /*para crear 3 columnas iguales */
+        column-gap: 10px;  /* crea un marguen entre las columnas*/
+    } 
+}
+
+.servicio {     /* para centrar el circuito dentro de la caja*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.servicio h3 { 
+    color: var(--secundario);
+    font-size: 400;
+   
+}
+
+.servicio p {
+    line-height: 2; /* para dejar doble espacio */
+    text-align: center; /* para centrar el texto*/
+}
+
+.servicio .iconos {
+    height: 15rem; /*para crear un cuadrado del tamaño */
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%; 
+    display:flex;           /* para centrar los iconos dentro del circulo*/
+    align-items: center;
+    justify-content: center;
+
+}
+
+/**** CONTACTO Y FORMULARIO**** */
+
+.formulario {
+    background-color: var(--gris);
+    width: min(60rem, 100%); /* utiliza el valor mas pequeño, es como una funcion( parametros, parametro) */
+    margin: 0 auto; /* para centrar horizontal el formulario cuyo padre no es un display flex*/ 
+    padding: 2rem;
+    border-radius: 1rem;
+
+}
+
+.formulario fieldset {
+    border: none;
+}
+
+.formulario legend {
+    color: var(--primario);
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+
+}
+
+
+
+.contenedor-campos {
+    display: grid;}
+ 
+ 
+@media (min-width: 768px) {
+.contenedor-campos {   /*para separar en dos columnas y tres filas*/
+        display: grid;
+        grid-template-columns: 50% 50%;
+        column-gap: 1rem;
+        grid-template-rows: auto auto 20rem;
+
+
+    }   /* dentro de mq y se define que mientras sea grande medira lo siguiente, de una fila a otra mejor con firefox */    
+    .campo:nth-child(3),
+    .campo:nth-child(4) {
+        grid-column: 1/3;
+    }
+    
+}
+
+.campo {
+    margin-bottom: 1rem;
+}
+.campo label {
+    color:var(--blanco);
+    font-weight: bold; /* para que quede como en negrita */
+    margin-bottom:0.5rem;
+    display: block; /* queda en bloque y no en linea */
+
+
+}
+ .input-text {
+    width: 100%; /* para que el campo llegue hasta el final de la caja */
+    padding:1.5rem;
+    border:none; /* todos los input tienen bordes, hay que quitarlos */
+    border-radius: 1.5rem;
+ }
+.campo textarea {
+    height: 20rem;
+
+} 
+
+/* pie de pagina*/
+.footer {
+    text-align: center;
+    font-weight: 600;
+}
+
